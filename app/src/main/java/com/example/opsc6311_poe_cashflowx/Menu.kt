@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
+
 class Menu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +27,12 @@ class Menu : AppCompatActivity() {
         val expensesBtn = findViewById<Button>(R.id.expensesBtn)
         val calendarBtn = findViewById<Button>(R.id.calendarBtn)
         val reportBtn = findViewById<Button>(R.id.reportBtn)
+        val settingsBtn = findViewById<Button>(R.id.settingsBtn)
+
+        settingsBtn.setOnClickListener {
+            val intent = Intent(this, Settings::class.java)
+            startActivity(intent)
+        }
 
         budgetBtn.setOnClickListener {
             val intent = Intent(this, Budget_Page::class.java)
@@ -42,6 +49,7 @@ class Menu : AppCompatActivity() {
             val intent = Intent(this, Earnings::class.java)
             startActivity(intent)
         }
+
 
         expensesBtn.setOnClickListener {
             val intent = Intent(this, Expenses::class.java)
