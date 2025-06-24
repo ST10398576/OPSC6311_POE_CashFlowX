@@ -1,4 +1,4 @@
-package com.example.cashflowx
+package com.example.opsc6311_poe_cashflowx
 
 data class BudgetCategory(
     val name: String,

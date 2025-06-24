@@ -1,4 +1,4 @@
-package com.example.cashflowx
+package com.example.opsc6311_poe_cashflowx
 
 import android.graphics.Color
 import android.view.LayoutInflater

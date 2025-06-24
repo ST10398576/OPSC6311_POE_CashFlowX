@@ -10,42 +10,40 @@
     <!-- Top App Bar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/topAppBar"
-        android:layout_width="412dp"
+        android:layout_width="match_parent"
         android:layout_height="120dp"
         android:background="@drawable/background_gradient"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="@android:color/white" />
+        app:titleTextColor="@android:color/white">
 
-    <ImageView
-        android:id="@+id/back_icon"
-        android:layout_width="40dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/white_back_icon" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
-    <!-- Red Transaction Card -->
-    <TextView
-        android:id="@+id/pageTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="137dp"
-        android:text="Transactions"
-        android:textColor="#F8FFFFFF"
-        android:textSize="50sp"
-        android:textStyle="normal|bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/white_back_icon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="307dp"
+                tools:srcCompat="@drawable/white_back_icon" />
+
+            <TextView
+                android:id="@+id/pageTitle"
+                android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+                android:layout_marginEnd="50dp"
+                android:text="Transactions"
+                android:textColor="#F8FFFFFF"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/transactionCard"
@@ -152,8 +150,8 @@
 
     <ImageView
         android:id="@+id/imagePreview"
-        android:layout_width="163dp"
-        android:layout_height="105dp"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -161,28 +159,35 @@
         app:layout_constraintTop_toBottomOf="@+id/transactionCard" />
 
 
-    <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="100dp"
+    <LinearLayout
+        android:id="@+id/bottomButtonsLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
-        android:layout_marginBottom="25dp"
-        android:backgroundTint="#FA0202"
-        android:text="Delete"
-        android:textColor="@android:color/white"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginStart="36dp"
-        android:backgroundTint="#FA0202"
-        android:text="Add"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toEndOf="@+id/btnDelete"
-        tools:layout_editor_absoluteY="658dp" />
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#FA0202"
+            android:text="Delete"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#FA0202"
+            android:text="Add"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
