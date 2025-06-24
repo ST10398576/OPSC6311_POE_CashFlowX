@@ -34,6 +34,13 @@ class Menu : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val settingsBtn = findViewById<Button>(R.id.settingsBtn)
+
+        settingsBtn.setOnClickListener {
+            val intent = Intent(this, Settings::class.java)
+            startActivity(intent)
+        }
+
         budgetBtn.setOnClickListener {
             val intent = Intent(this, Budget_Page::class.java)
             startActivity(intent)

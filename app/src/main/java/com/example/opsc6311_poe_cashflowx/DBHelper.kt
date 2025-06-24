@@ -43,4 +43,26 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "CashflowDB.db", nu
         cursor.close()
         return isLoggedIn
     }
+
+    fun updatePassword(username: String, oldPassword: String, newPassword: String): Boolean {
+        val db = this.writableDatabase
+        val cursor = db.rawQuery(
+            "SELECT * FROM users WHERE username = ? AND password = ?",
+            arrayOf(username, oldPassword)
+        )
+
+        return if (cursor.count > 0) {
+            val values = ContentValues().apply {
+                put("password", newPassword)
+            }
+            db.update("users", values, "username = ?", arrayOf(username))
+            cursor.close()
+            true
+        } else {
+            cursor.close()
+            false
+        }
+    }
+}
+
 }
