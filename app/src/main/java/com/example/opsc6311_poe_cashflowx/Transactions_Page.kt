@@ -73,7 +73,7 @@ class Transactions_Page : AppCompatActivity() {
             }
         }
 
-        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+         fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
             super.onActivityResult(requestCode, resultCode, data)
             if (requestCode == IMAGE_PICK_CODE && resultCode == RESULT_OK && data != null) {
                 selectedImageUri = data.data
