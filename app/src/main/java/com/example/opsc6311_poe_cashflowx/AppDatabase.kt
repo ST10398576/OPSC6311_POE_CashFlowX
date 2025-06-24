@@ -1,8 +1,10 @@
-package com.example.cashflowx
+package com.example.opsc6311_poe_cashflowx
 
+import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
-import com.example.cashflowx.model.ExpensesItem
+import androidx.room.RoomDatabase
+import com.example.opsc6311_poe_cashflowx.model.EarningsItem
 
 // AppDatabase.kt
 @Database(entities = [ExpensesItem::class, EarningsItem::class], version = 1)

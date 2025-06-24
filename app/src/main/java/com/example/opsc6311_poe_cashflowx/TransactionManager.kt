@@ -1,7 +1,6 @@
-package com.example.cashflowx.data
+package com.example.opsc6311_poe_cashflowx
 
-import com.example.cashflowx.model.EarningsItem
-import com.example.cashflowx.model.ExpensesItem
+import com.example.opsc6311_poe_cashflowx.model.EarningsItem
 
 object TransactionManager {
     val expensesList = mutableListOf<ExpensesItem>()

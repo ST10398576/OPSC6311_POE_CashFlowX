@@ -1,4 +1,4 @@
-package com.example.cashflowx
+package com.example.opsc6311_poe_cashflowx
 
 import android.content.Intent
 import android.net.Uri
@@ -7,13 +7,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RadioGroup
-import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cashflowx.model.ExpensesItem
-import com.example.cashflowx.data.TransactionManager
-import com.example.cashflowx.model.EarningsItem
+import com.example.opsc6311_poe_cashflowx.ExpensesItem
+import com.example.opsc6311_poe_cashflowx.model.EarningsItem
 
 class Transactions_Page : AppCompatActivity() {
 
@@ -75,11 +73,12 @@ class Transactions_Page : AppCompatActivity() {
             }
         }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == IMAGE_PICK_CODE && resultCode == RESULT_OK && data != null) {
-            selectedImageUri = data.data
-            imagePreview.setImageURI(selectedImageUri)
+        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            super.onActivityResult(requestCode, resultCode, data)
+            if (requestCode == IMAGE_PICK_CODE && resultCode == RESULT_OK && data != null) {
+                selectedImageUri = data.data
+                imagePreview.setImageURI(selectedImageUri)
+            }
         }
     }
 }

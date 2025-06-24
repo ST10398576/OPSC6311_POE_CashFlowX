@@ -1,6 +1,5 @@
-package com.example.cashflowx.adapter
+package com.example.opsc6311_poe_cashflowx
 
-import android.content.Context
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +7,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cashflowx.R
-import com.example.cashflowx.model.ExpensesItem
 import com.bumptech.glide.Glide // For loading images using Glide
 
 class ExpensesAdapter(private val expensesList: List<ExpensesItem>) :

@@ -1,4 +1,4 @@
-package com.example.cashflowx.model
+package com.example.opsc6311_poe_cashflowx.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

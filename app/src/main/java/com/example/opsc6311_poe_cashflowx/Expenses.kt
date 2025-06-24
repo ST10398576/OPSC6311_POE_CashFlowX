@@ -1,12 +1,10 @@
-package com.example.cashflowx
+package com.example.opsc6311_poe_cashflowx
 
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cashflowx.adapter.ExpensesAdapter
-import com.example.cashflowx.data.TransactionManager
 
 class Expenses : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

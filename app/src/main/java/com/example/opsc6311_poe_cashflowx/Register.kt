@@ -1,4 +1,4 @@
-package com.example.cashflowx
+package com.example.opsc6311_poe_cashflowx
 
 import android.content.Intent
 import android.os.Bundle
