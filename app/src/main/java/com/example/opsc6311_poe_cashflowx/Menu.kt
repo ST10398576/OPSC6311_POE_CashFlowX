@@ -28,16 +28,11 @@ class Menu : AppCompatActivity() {
         val calendarBtn = findViewById<Button>(R.id.calendarBtn)
         val reportBtn = findViewById<Button>(R.id.reportBtn)
         val settingsBtn = findViewById<Button>(R.id.settingsBtn)
+        val username = intent.getStringExtra("username") ?: ""
 
         settingsBtn.setOnClickListener {
             val intent = Intent(this, Settings::class.java)
-            startActivity(intent)
-        }
-
-        val settingsBtn = findViewById<Button>(R.id.settingsBtn)
-
-        settingsBtn.setOnClickListener {
-            val intent = Intent(this, Settings::class.java)
+            intent.putExtra("username", username)
             startActivity(intent)
         }
 

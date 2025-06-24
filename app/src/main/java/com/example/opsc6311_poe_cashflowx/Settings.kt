@@ -9,59 +9,34 @@ import androidx.appcompat.app.AppCompatActivity
 
 class Settings : AppCompatActivity() {
 
-    private lateinit var oldPasswordEditText: EditText
-    private lateinit var newPasswordEditText: EditText
-    private lateinit var confirmPasswordEditText: EditText
-    private lateinit var confirmButton: Button
-    private lateinit var backButton: Button
-
     private lateinit var dbHelper: DBHelper
-    private lateinit var currentUsername: String // You should pass this in via Intent or session
+    private lateinit var currentUsername: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_settings)
 
-        // Initialize views
-        val oldPass = findViewById<EditText>(R.id.editTextText)
-        val newPass = findViewById<EditText>(R.id.editTextText2)
-        val confirmPass = findViewById<EditText>(R.id.editTextText3)
-        val confirmBtn = findViewById<Button>(R.id.button2)
+        // Get the username from intent
+        currentUsername = intent.getStringExtra("username") ?: ""
 
-        val dbHelper = DBHelper(this)
-        val username = intent.getStringExtra("username") ?: "" // Make sure to pass this when navigating
+        dbHelper = DBHelper(this)
 
-        confirmBtn.setOnClickListener {
-            val oldPassword = oldPass.text.toString().trim()
-            val newPassword = newPass.text.toString().trim()
-            val confirmPassword = confirmPass.text.toString().trim()
+        val oldPasswordEditText = findViewById<EditText>(R.id.editTextText)
+        val newPasswordEditText = findViewById<EditText>(R.id.editTextText2)
+        val confirmPasswordEditText = findViewById<EditText>(R.id.editTextText3)
+        val confirmButton = findViewById<Button>(R.id.button2)
+        val backButton = findViewById<Button>(R.id.button4)
+
+        confirmButton.setOnClickListener {
+            val oldPassword = oldPasswordEditText.text.toString().trim()
+            val newPassword = newPasswordEditText.text.toString().trim()
+            val confirmPassword = confirmPasswordEditText.text.toString().trim()
 
             if (oldPassword.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show()
-            } else if (newPassword != confirmPassword) {
-                Toast.makeText(
-                    this,
-                    "New password and confirmation do not match",
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else {
-                val success = dbHelper.updatePassword(username, oldPassword, newPassword)
-                if (success) {
-                    Toast.makeText(this, "Password updated successfully", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Old password is incorrect", Toast.LENGTH_SHORT).show()
-                }
+                return@setOnClickListener
             }
-        }
-
-        // TODO: Replace this with actual logged-in username (e.g. from login or SharedPreferences)
-        currentUsername = intent.getStringExtra("username") ?: ""
-
-        confirmButton.setOnClickListener {
-            val oldPassword = oldPasswordEditText.text.toString()
-            val newPassword = newPasswordEditText.text.toString()
-            val confirmPassword = confirmPasswordEditText.text.toString()
 
             if (newPassword != confirmPassword) {
                 Toast.makeText(this, "New passwords do not match", Toast.LENGTH_SHORT).show()

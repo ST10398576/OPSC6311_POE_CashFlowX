@@ -51,18 +51,16 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "CashflowDB.db", nu
             arrayOf(username, oldPassword)
         )
 
-        return if (cursor.count > 0) {
+        val success = if (cursor.moveToFirst()) {
             val values = ContentValues().apply {
                 put("password", newPassword)
             }
-            db.update("users", values, "username = ?", arrayOf(username))
-            cursor.close()
-            true
+            db.update("users", values, "username = ?", arrayOf(username)) > 0
         } else {
-            cursor.close()
             false
         }
-    }
-}
 
+        cursor.close()
+        return success
+    }
 }
