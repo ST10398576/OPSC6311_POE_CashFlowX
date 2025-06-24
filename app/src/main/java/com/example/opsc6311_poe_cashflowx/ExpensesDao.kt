@@ -1,5 +1,7 @@
 package com.example.opsc6311_poe_cashflowx
 
+import androidx.room.*
+
 // ExpensesDao.kt
 @Dao
 interface ExpensesDao {

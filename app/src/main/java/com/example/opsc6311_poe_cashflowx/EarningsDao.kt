@@ -1,5 +1,8 @@
 package com.example.opsc6311_poe_cashflowx
 
+import androidx.room.*
+import com.example.opsc6311_poe_cashflowx.model.EarningsItem
+
 // EarningsDao.kt
 @Dao
 interface EarningsDao {
