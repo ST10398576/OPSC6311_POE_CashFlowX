@@ -109,8 +109,8 @@
         android:backgroundTint="#F7F80505"
         android:backgroundTintMode="add"
         android:text="Confirm New Password"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="460dp" />
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="458dp" />
 
     <Button
         android:id="@+id/button4"

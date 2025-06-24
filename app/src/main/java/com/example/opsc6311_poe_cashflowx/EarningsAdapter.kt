@@ -1,4 +1,4 @@
-package com.example.cashflowx.adapter
+package com.example.opsc6311_poe_cashflowx
 
 import android.net.Uri
 import android.view.LayoutInflater
@@ -8,8 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.cashflowx.R
-import com.example.cashflowx.model.EarningsItem
+import com.example.opsc6311_poe_cashflowx.model.EarningsItem
 
 
 class EarningsAdapter(private val earningsList: List<EarningsItem>) :
