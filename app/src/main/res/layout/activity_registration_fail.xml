@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050505"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-50dp"
+    tools:context=".Registration_Fail">
+
+    <ImageView
+        android:id="@+id/resFail"
+        android:layout_width="99dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/registerfail_icon" />
+
+    <TextView
+        android:id="@+id/RegSuccBold"
+        android:layout_width="291dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="264dp"
+        android:text="Unable To Register"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AccNotMade"
+        android:layout_width="369dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="348dp"
+        android:text="Your account could not be registered or account already exists. Please try again or sign in to your account."
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnRetry"
+        android:layout_width="345dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="208dp"
+        android:backgroundTint="#F7F80505"
+        android:backgroundTintMode="add"
+        android:text="Retry"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/AccMadeAlready"
+        android:layout_width="234dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="160dp"
+        android:text="Already have an Account? Login"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

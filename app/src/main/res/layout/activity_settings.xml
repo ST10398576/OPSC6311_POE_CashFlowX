@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050505"
+    tools:context=".Settings">
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="340dp"
+        android:layout_height="59dp"
+        android:backgroundTint="#E0FDFBFB"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Old Password"
+        android:textColor="#D7CECE"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="242dp" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="340dp"
+        android:layout_height="59dp"
+        android:backgroundTint="#E0FDFBFB"
+        android:ems="10"
+        android:inputType="text"
+        android:text="New Password"
+        android:textColor="#D7CECE"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="313dp" />
+
+    <EditText
+        android:id="@+id/editTextText3"
+        android:layout_width="340dp"
+        android:layout_height="59dp"
+        android:backgroundTint="#E0FDFBFB"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Confirm Password"
+        android:textColor="#D7CECE"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="382dp" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="409dp"
+        android:layout_height="112dp"
+        android:backgroundTint="#FA0202"
+        android:backgroundTintMode="add"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="124dp"
+        android:layout_height="84dp"
+        tools:layout_editor_absoluteX="289dp"
+        tools:layout_editor_absoluteY="14dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="227dp"
+        android:layout_height="65dp"
+        android:text="Settings "
+        android:textColor="#F8FFFFFF"
+        android:textSize="40sp"
+        android:textStyle="normal|bold"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar2"
+        android:layout_width="408dp"
+        android:layout_height="94dp"
+        android:backgroundTint="#FA0202"
+        android:backgroundTintMode="add"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="634dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="300dp"
+        android:layout_height="64dp"
+        android:text="Password Reset"
+        android:textColor="#FAFFFFFF"
+        android:textSize="34sp"
+        android:textStyle="normal|bold"
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="133dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="392dp"
+        android:layout_height="55dp"
+        android:backgroundTint="#F7F80505"
+        android:backgroundTintMode="add"
+        android:text="Confirm New Password"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="460dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="298dp"
+        android:layout_height="51dp"
+        android:backgroundTint="#F7F80505"
+        android:backgroundTintMode="add"
+        android:text="Old Password"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="552dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
