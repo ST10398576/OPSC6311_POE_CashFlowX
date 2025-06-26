@@ -31,7 +31,7 @@ class EarningsAdapter(private val earnings: List<EarningsItem>) :
     override fun onBindViewHolder(holder: EarningsViewHolder, position: Int) {
         val item = earnings[position]
         holder.title.text = item.title
-        holder.amount.text = "R%.2f${item.amount}"
+        holder.amount.text = "R ${item.amount}"
         holder.date.text = item.date
         holder.category.text = item.category
         holder.notes.text = item.notes

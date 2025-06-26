@@ -150,7 +150,9 @@
 
     <ImageView
         android:id="@+id/imagePreview"
-        android:layout_width="150dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
         android:gravity="center"
         android:orientation="horizontal"
@@ -177,7 +179,7 @@
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
             android:backgroundTint="#FA0202"
-            android:text="Delete"
+            android:text="Clear"
             android:textColor="@android:color/white" />
 
         <Button

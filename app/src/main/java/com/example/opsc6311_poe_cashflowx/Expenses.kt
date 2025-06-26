@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.opsc6311_poe_cashflowx.model.EarningsItem
 import com.example.opsc6311_poe_cashflowx.model.ExpensesItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -15,33 +16,34 @@ class Expenses : AppCompatActivity() {
     private lateinit var expensesAdapter: ExpensesAdapter
     private val expensesList = mutableListOf<ExpensesItem>()
 
+    private lateinit var databaseRef: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_expenses_page)
 
-        expensesRecyclerView = findViewById(R.id.recyclerViewExpenses)
+        // Initialize RecyclerView
+        expensesRecyclerView = findViewById(R.id.expensesRecyclerView)
         expensesRecyclerView.layoutManager = LinearLayoutManager(this)
+
         expensesAdapter = ExpensesAdapter(expensesList)
         expensesRecyclerView.adapter = expensesAdapter
 
+        // Initialize Firebase reference
+        databaseRef = FirebaseDatabase.getInstance().getReference("earnings")
+
+        // Fetch data
         fetchExpensesFromFirebase()
     }
 
     private fun fetchExpensesFromFirebase() {
-        val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
-        val dbRef = FirebaseDatabase.getInstance().reference
-            .child("Users")
-            .child(userId)
-            .child("Expenses")
-
-        dbRef.addValueEventListener(object : ValueEventListener {
+        databaseRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 expensesList.clear()
-                for (expenseSnap in snapshot.children) {
-                    val item = expenseSnap.getValue(ExpensesItem::class.java)
-                    item?.id = expenseSnap.key
-                    if (item != null) {
-                        expensesList.add(item)
+                for (expenseSnapshot in snapshot.children) {
+                    val expense = expenseSnapshot.getValue(ExpensesItem::class.java)
+                    if (expense != null) {
+                        expensesList.add(expense)
                     }
                 }
                 expensesAdapter.notifyDataSetChanged()
