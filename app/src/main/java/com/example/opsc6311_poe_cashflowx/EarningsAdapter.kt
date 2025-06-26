@@ -1,6 +1,5 @@
 package com.example.opsc6311_poe_cashflowx
 
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,41 +10,40 @@ import com.bumptech.glide.Glide
 import com.example.opsc6311_poe_cashflowx.model.EarningsItem
 
 
-class EarningsAdapter(private val earningsList: List<EarningsItem>) :
+class EarningsAdapter(private val earnings: List<EarningsItem>) :
     RecyclerView.Adapter<EarningsAdapter.EarningsViewHolder>() {
 
+    class EarningsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val title: TextView = view.findViewById(R.id.tvTitle)
+        val amount: TextView = view.findViewById(R.id.tvAmount)
+        val date: TextView = view.findViewById(R.id.tvDate)
+        val category: TextView = view.findViewById(R.id.tvCategory)
+        val notes: TextView = view.findViewById(R.id.tvNote)
+        val image: ImageView = view.findViewById(R.id.tvImage)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EarningsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_earnings_item, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.activity_earnings_item, parent, false)
         return EarningsViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: EarningsViewHolder, position: Int) {
-        val item = earningsList[position]
-        holder.source.text = item.earnTitle
-        holder.date.text = item.earnDate
-        holder.amount.text = "R${item.earnAmount}"
-        holder.category.text = item.earnCategory
-        holder.note.text = item.earnNote
+        val item = earnings[position]
+        holder.title.text = item.title
+        holder.amount.text = "R%.2f${item.amount}"
+        holder.date.text = item.date
+        holder.category.text = item.category
+        holder.notes.text = item.notes
 
-        // Load image using Glide
-        if (item.earnImage.isNotEmpty()) {
+        if (item.imageUrl.isNotEmpty()) {
             Glide.with(holder.itemView.context)
-                .load(Uri.parse(item.earnImage)) // assuming expenImage contains a URI string
+                .load(item.imageUrl)
                 .into(holder.image)
+        } else {
+            holder.image.setImageResource(R.drawable.background_gradient) // optional fallback
         }
     }
 
-    override fun getItemCount() = earningsList.size
-
-    class EarningsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val source: TextView = itemView.findViewById(R.id.tvTitle)
-        val date: TextView = itemView.findViewById(R.id.tvDate)
-        val amount: TextView = itemView.findViewById(R.id.tvAmount)
-        val category: TextView = itemView.findViewById(R.id.tvCategory)
-        val note: TextView = itemView.findViewById(R.id.tvNote)
-
-        // ImageView to display the image
-        val image: ImageView = itemView.findViewById(R.id.tvImage)
-
-    }
+    override fun getItemCount(): Int = earnings.size
 }

@@ -1,109 +1,91 @@
 package com.example.opsc6311_poe_cashflowx
 
-import android.app.Activity
-import android.content.Intent
-import android.net.Uri
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.example.opsc6311_poe_cashflowx.model.EarningsItem
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.storage.FirebaseStorage
+import java.text.SimpleDateFormat
 import java.util.*
 
 class Transactions_Page : AppCompatActivity() {
 
-    private lateinit var editName: EditText
-    private lateinit var editDate: EditText
-    private lateinit var editCategory: EditText
-    private lateinit var editCost: EditText
-    private lateinit var editNote: EditText
+    private lateinit var titleInput: EditText
+    private lateinit var dateInput: EditText
+    private lateinit var amountInput: EditText
+    private lateinit var categoryInput: EditText
+    private lateinit var notesInput: EditText
+    private lateinit var imageUrlInput: EditText
     private lateinit var editRadioGroup: RadioGroup
-    private lateinit var imagePreview: ImageView
-    private val IMAGE_PICK_CODE = 1001
-    private var selectedImageUri: Uri? = null
-    private val storageRef = FirebaseStorage.getInstance().reference
+    private lateinit var addButton: Button
+    private val calendar = Calendar.getInstance()
+    private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transactions)
 
-        editName = findViewById(R.id.editName)
-        editDate = findViewById(R.id.editDate)
-        editCategory = findViewById(R.id.editCategory)
-        editCost = findViewById(R.id.editCost)
-        editNote = findViewById(R.id.editNote)
+        titleInput = findViewById(R.id.editName)
+        dateInput = findViewById(R.id.editDate)
+        categoryInput = findViewById(R.id.editCategory)
+        amountInput = findViewById(R.id.editCost)
+        notesInput = findViewById(R.id.editNote)
+        imageUrlInput = findViewById(R.id.imagePreview)
         editRadioGroup = findViewById(R.id.editRadioGroup)
-        imagePreview = findViewById(R.id.imagePreview)
+        addButton = findViewById(R.id.btnAdd)
 
-        val addImageBtn = findViewById<Button>(R.id.btnAddImage)
-        addImageBtn.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent, IMAGE_PICK_CODE)
+        // Set up date picker
+        dateInput.setOnClickListener {
+            DatePickerDialog(this,
+                { _, year, month, day ->
+                    calendar.set(year, month, day)
+                    dateInput.setText(dateFormat.format(calendar.time))
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            ).show()
         }
 
-        findViewById<Button>(R.id.btnAdd).setOnClickListener {
-            val name = editName.text.toString()
-            val date = editDate.text.toString()
-            val category = editCategory.text.toString()
-            val cost = editCost.text.toString().toDoubleOrNull() ?: 0.0
-            val note = editNote.text.toString()
-            val type = when (editRadioGroup.checkedRadioButtonId) {
-                R.id.expenseRadio -> TransactionType.EXPENSE
-                R.id.earningRadio -> TransactionType.EARNING
-                else -> TransactionType.EXPENSE
-            }
-
-            // Upload image if available
-            if (selectedImageUri != null) {
-                val fileName = UUID.randomUUID().toString()
-                val imgRef = storageRef.child("transaction_images/$fileName")
-
-                imgRef.putFile(selectedImageUri!!)
-                    .addOnSuccessListener {
-                        imgRef.downloadUrl.addOnSuccessListener { uri ->
-                            saveTransactionToFirebase(type, name, date, cost, category, note, uri.toString())
-                        }
-                    }
-                    .addOnFailureListener {
-                        Toast.makeText(this, "Image upload failed", Toast.LENGTH_SHORT).show()
-                    }
-            } else {
-                saveTransactionToFirebase(type, name, date, cost, category, note, "")
-            }
+        addButton.setOnClickListener {
+            saveTransaction()
         }
     }
 
-    private fun saveTransactionToFirebase(
-        type: TransactionType,
-        name: String,
-        date: String,
-        cost: Double,
-        category: String,
-        note: String,
-        imageUrl: String
-    ) {
-        val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
-        val dbRef = FirebaseDatabase.getInstance().reference
+    private fun saveTransaction() {
+        val id = UUID.randomUUID().toString()
+        val title = titleInput.text.toString().trim()
+        val amount = amountInput.text.toString().toDoubleOrNull() ?: 0.0
+        val category = categoryInput.text.toString().trim()
+        val notes = notesInput.text.toString().trim()
+        val imageUrl = imageUrlInput.text.toString().trim()
+        val date = dateInput.text.toString().trim()
 
-        if (type == TransactionType.EXPENSE) {
-            val newExpense = ExpensesItem(0, name, date, cost, category, note, imageUrl)
-            dbRef.child("Users").child(userId).child("Expenses").push().setValue(newExpense)
-            startActivity(Intent(this, Expenses::class.java))
-        } else {
-            val newEarning = EarningsItem(0, name, date, cost, category, note, imageUrl)
-            dbRef.child("Users").child(userId).child("Earnings").push().setValue(newEarning)
-            startActivity(Intent(this, Earnings::class.java))
+        if (title.isEmpty() || category.isEmpty() || date.isEmpty()) {
+            Toast.makeText(this, "Please fill in all required fields.", Toast.LENGTH_SHORT).show()
+            return
         }
-    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == IMAGE_PICK_CODE && resultCode == Activity.RESULT_OK && data != null) {
-            selectedImageUri = data.data
-            imagePreview.setImageURI(selectedImageUri)
+        when (editRadioGroup.checkedRadioButtonId) {
+            R.id.expenseRadio -> {
+                TransactionManager.addExpense(id, title, date, amount, category, notes, imageUrl)
+                Toast.makeText(this, "Expense added", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+            R.id.earningRadio -> {
+                TransactionManager.addEarning(id, title, date, amount, category, notes, imageUrl)
+                Toast.makeText(this, "Earning added", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+            else -> {
+                Toast.makeText(this, "Select transaction type", Toast.LENGTH_SHORT).show()
+            }
         }
+        // Clear input fields
+        titleInput.text.clear()
+        dateInput.text.clear()
+        amountInput.text.clear()
+        categoryInput.text.clear()
+        notesInput.text.clear()
+        imageUrlInput.text.clear()
     }
 }

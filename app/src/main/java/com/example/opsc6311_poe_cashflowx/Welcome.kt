@@ -12,19 +12,23 @@ import com.google.firebase.auth.FirebaseAuth
 
 class Welcome : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+    private lateinit var etEmail: EditText
+    private lateinit var etPassword: EditText
+    private lateinit var btnNext: Button
+    private lateinit var tvRegisterRedirect: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
 
         auth = FirebaseAuth.getInstance()
-        val etUsername = findViewById<EditText>(R.id.etUsername)
-        val etPassword = findViewById<EditText>(R.id.etPassword)
-        val btnNext = findViewById<Button>(R.id.btnNext)
-        val tvRegisterRedirect = findViewById<TextView>(R.id.tvRegisterRedirect)
+        etEmail = findViewById(R.id.etEmail)
+        etPassword = findViewById(R.id.etPassword)
+        btnNext = findViewById(R.id.btnNext)
+        tvRegisterRedirect = findViewById(R.id.tvRegisterRedirect)
 
         btnNext.setOnClickListener {
-            val email = etUsername.text.toString().trim()
+            val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
 
             if (email.isEmpty() || password.isEmpty()) {

@@ -26,7 +26,7 @@
 
         <!-- Subheading -->
 
-        <!-- Username Input -->
+
         <TextView
             android:id="@+id/tvWelcomeSubtext"
             android:layout_width="wrap_content"
@@ -36,18 +36,18 @@
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
-        <!-- Password Input -->
+        <!-- Email Input -->
         <EditText
-            android:id="@+id/etUsername"
+            android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
             android:backgroundTint="#FFFFFF"
-            android:hint="Username"
-            android:textColor="#FFFFFF"
+            android:hint="Email"
             android:textColorHint="#FFFFFF"
             android:textSize="20sp" />
 
+        <!-- Password Input -->
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
@@ -56,7 +56,6 @@
             android:backgroundTint="#FFFFFF"
             android:hint="Password"
             android:inputType="textPassword"
-            android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
             android:textSize="20sp" />
 

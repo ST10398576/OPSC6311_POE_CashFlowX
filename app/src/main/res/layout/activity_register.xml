@@ -28,7 +28,7 @@
             android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="#FFFFFF"
             android:hint="Username"
             android:textColor="#FFFFFF"
@@ -39,7 +39,7 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="#FFFFFF"
             android:hint="Email"
             android:inputType="textEmailAddress"
@@ -52,7 +52,7 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="#FFFFFF"
             android:hint="Password"
             android:inputType="textPassword"
@@ -60,6 +60,17 @@
             android:textColorHint="#FFFFFF"
             android:textSize="20sp" />
 
+        <EditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:backgroundTint="#FFFFFF"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/btnRegister"

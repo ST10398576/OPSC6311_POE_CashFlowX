@@ -1,16 +1,11 @@
-package com.example.opsc6311_poe_cashflowx
+package com.example.opsc6311_poe_cashflowx.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "expenses")
 data class ExpensesItem(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
-    val expenTitle: String,
-    val expenDate: String,
-    val expenAmount: Double,
-    val expenCategory: String,
-    val expenNote: String,
-    val expenImage: String
+    var id: String? = null,                // Firebase will generate this
+    var title: String = "",                // Expense name
+    var date: String = "",                 // Date entered by user
+    var amount: Double = 0.0,              // Cost entered by user
+    var category: String = "",             // Category entered by user
+    var notes: String = "",                // Notes entered by user
+    var imageUrl: String = ""              // Firebase Storage image URL
 )

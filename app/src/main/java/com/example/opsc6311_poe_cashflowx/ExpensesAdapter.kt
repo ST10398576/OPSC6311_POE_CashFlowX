@@ -1,48 +1,48 @@
 package com.example.opsc6311_poe_cashflowx
 
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide // For loading images using Glide
+import com.bumptech.glide.Glide
+import com.example.opsc6311_poe_cashflowx.model.ExpensesItem
 
-class ExpensesAdapter(private val expensesList: List<ExpensesItem>) :
+class ExpensesAdapter(private val expenses: List<ExpensesItem>) :
     RecyclerView.Adapter<ExpensesAdapter.ExpensesViewHolder>() {
 
+    inner class ExpensesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val title: TextView = view.findViewById(R.id.tvTitle)
+        val amount: TextView = view.findViewById(R.id.tvAmount)
+        val date: TextView = view.findViewById(R.id.tvDate)
+        val category: TextView = view.findViewById(R.id.tvCategory)
+        val notes: TextView = view.findViewById(R.id.tvNote)
+        val image: ImageView = view.findViewById(R.id.tvImage)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExpensesViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_expenses_item, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.activity_expenses_item, parent, false)
         return ExpensesViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ExpensesViewHolder, position: Int) {
-        val item = expensesList[position]
-        holder.source.text = item.expenTitle
-        holder.date.text = item.expenDate
-        holder.amount.text = "R${item.expenAmount}"
-        holder.category.text = item.expenCategory
-        holder.note.text = item.expenNote
+        val item = expenses[position]
+        holder.title.text = item.title
+        holder.amount.text = "R${item.amount}"
+        holder.date.text = item.date
+        holder.category.text = item.category
+        holder.notes.text = item.notes
 
-        // Load image using Glide
-        if (item.expenImage.isNotEmpty()) {
+        if (item.imageUrl.isNotEmpty()) {
             Glide.with(holder.itemView.context)
-                .load(Uri.parse(item.expenImage)) // assuming expenImage contains a URI string
+                .load(item.imageUrl)
                 .into(holder.image)
+        } else {
+            holder.image.setImageResource(R.drawable.background_gradient) // optional fallback
         }
     }
 
-    override fun getItemCount() = expensesList.size
-
-    class ExpensesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val source: TextView = itemView.findViewById(R.id.tvTitle)
-        val date: TextView = itemView.findViewById(R.id.tvDate)
-        val amount: TextView = itemView.findViewById(R.id.tvAmount)
-        val category: TextView = itemView.findViewById(R.id.tvCategory)
-        val note: TextView = itemView.findViewById(R.id.tvNote)
-
-        // ImageView to display the image
-        val image: ImageView = itemView.findViewById(R.id.tvImage)
-    }
+    override fun getItemCount(): Int = expenses.size
 }
