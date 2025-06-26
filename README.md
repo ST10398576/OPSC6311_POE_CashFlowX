@@ -55,7 +55,7 @@ Successfully tested on physical Samsung
 
 📚 Research & Design Docs
 Included as part of Part 1 submission
-
+https://github.com/ST10398576/OPSC6311_POE_CashFlowX/commit/4011e4f43c6b8afeae6b0487acb2e6b5eef7cfbe
 Contents:
 Persona profiles
 Feature wireframes
