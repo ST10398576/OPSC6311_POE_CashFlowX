@@ -25,9 +25,12 @@
                 android:id="@+id/white_back_icon"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="307dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="138dp"
+                android:layout_marginBottom="30dp"
+                android:layout_toStartOf="@+id/pageTitle"
                 tools:srcCompat="@drawable/white_back_icon" />
 
             <TextView

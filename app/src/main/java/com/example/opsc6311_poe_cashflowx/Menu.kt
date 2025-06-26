@@ -56,7 +56,7 @@ class Menu : AppCompatActivity() {
         }
 
         calendarBtn.setOnClickListener {
-            val intent = Intent(this, Calendar::class.java)
+            val intent = Intent(this, CalendarActivity::class.java)
             startActivity(intent)
         }
 

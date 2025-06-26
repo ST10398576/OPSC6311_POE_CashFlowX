@@ -12,9 +12,9 @@ class Registration_Success : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_registration_success)
 
-        val btnBackToLogin = findViewById<Button>(R.id.btnBackToLogin)
+        val btnGoToLogin = findViewById<Button>(R.id.btnGoToLogin)
 
-        btnBackToLogin.setOnClickListener {
+        btnGoToLogin.setOnClickListener {
             val intent = Intent(this, Welcome::class.java)
             startActivity(intent)
         }

@@ -10,7 +10,7 @@ import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 
-class Calendar : AppCompatActivity(), CalendarAdapter.OnItemListener {
+class CalendarActivity : AppCompatActivity(), CalendarAdapter.OnItemListener {
 
     private lateinit var monthYearText: TextView
     private lateinit var calendarRecyclerView: RecyclerView

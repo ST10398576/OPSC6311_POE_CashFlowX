@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:padding="8dp"
+    android:background="#D32F2F"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -9,18 +10,21 @@
         android:id="@+id/textCategoryName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:text="Category Name" />
 
     <TextView
         android:id="@+id/textGoalRange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:text="Goal Range" />
 
     <TextView
         android:id="@+id/textActualSpent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:text="Actual Spent" />
 
 </LinearLayout>
