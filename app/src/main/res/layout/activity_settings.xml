@@ -105,7 +105,7 @@
         app:layout_constraintVertical_bias="0.188" />
 
     <Button
-        android:id="@+id/ConfirmNewPassword"
+        android:id="@+id/button2"
         android:layout_width="339dp"
         android:layout_height="44dp"
         android:layout_marginBottom="152dp"
@@ -116,18 +116,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/LogOutBtn"
+    <!-- <Button
+        android:id="@+id/button4"
         android:layout_width="152dp"
         android:layout_height="52dp"
         android:backgroundTint="#F7F80505"
         android:backgroundTintMode="add"
-        android:text="LogOut"
+        android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/materialToolbar"
-        app:layout_constraintVertical_bias="0.901" />
+        app:layout_constraintVertical_bias="0.901" /> -->
+
+    <!-- Bottom Navigation fixed at bottom -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#5D1E1E"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/bottom_nav_menu"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="651dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,16 +11,18 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class Register : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_register)
 
-        val dbHelper = DBHelper(this)
-
+        auth = FirebaseAuth.getInstance()
         val usernameInput = findViewById<EditText>(R.id.etUsername)
         val emailInput = findViewById<EditText>(R.id.etEmail)
         val passwordInput = findViewById<EditText>(R.id.etPassword)
@@ -35,18 +37,28 @@ class Register : AppCompatActivity() {
 
             if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Please fill in all the fields", Toast.LENGTH_SHORT).show()
-            } else if (dbHelper.checkUserExists(email)) {
-                Toast.makeText(this, "Email has already registered", Toast.LENGTH_SHORT).show()
-            } else {
-                val success = dbHelper.registerUser(username, email, password)
-                if (success) {
-                    Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, Registration_Success::class.java)
-                    startActivity(intent)
+                return@setOnClickListener
+            }
+
+            auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val userId = auth.currentUser?.uid
+                    val userMap = mapOf(
+                        "username" to username,
+                        "email" to email
+                    )
+
+                    userId?.let {
+                        FirebaseDatabase.getInstance()
+                            .reference
+                            .child("Users")
+                            .child(it)
+                            .setValue(userMap)
+                    }
+
+                    startActivity(Intent(this, Registration_Success::class.java))
                 } else {
-                    Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, Registration_Fail::class.java)
-                    startActivity(intent)
+                    startActivity(Intent(this, Registration_Fail::class.java))
                 }
             }
         }
