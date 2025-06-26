@@ -43,9 +43,6 @@
                 android:name=".Settings"
                 android:exported="true" />
             <activity
-                android:name=".Calender"
-                android:exported="true" />
-            <activity
                 android:name=".Menu"
                 android:exported="true" />
             <activity
