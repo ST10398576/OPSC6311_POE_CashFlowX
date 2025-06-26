@@ -20,6 +20,19 @@
     <string name="sun">SUN</string>
     <string name="back">Back</string>
     <string name="forward">forward</string>
+    <string name="add_expense">Add Expense</string>
+    <string name="view_achievements">View Achievements</string>
+    <string name="expense_list">Expense List</string>
+    <string name="title">Title</string>
+    <string name="date">Date</string>
+    <string name="amount">Amount</string>
+    <string name="category">Category</string>
+    <string name="note">Note</string>
+    <string name="image">Image</string>
+    <string name="_1">1</string>
+    <string name="category_name">Category Name</string>
+    <string name="min_goal">Min Goal</string>
+    <string name="max_goal">Max Goal</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
