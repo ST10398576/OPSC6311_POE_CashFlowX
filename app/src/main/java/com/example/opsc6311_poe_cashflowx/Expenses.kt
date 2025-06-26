@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.opsc6311_poe_cashflowx.model.EarningsItem
 import com.example.opsc6311_poe_cashflowx.model.ExpensesItem
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class Expenses : AppCompatActivity() {
@@ -30,7 +29,7 @@ class Expenses : AppCompatActivity() {
         expensesRecyclerView.adapter = expensesAdapter
 
         // Initialize Firebase reference
-        databaseRef = FirebaseDatabase.getInstance().getReference("earnings")
+        databaseRef = FirebaseDatabase.getInstance().getReference("expenses")
 
         // Fetch data
         fetchExpensesFromFirebase()

@@ -2,14 +2,12 @@ package com.example.opsc6311_poe_cashflowx
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
-import java.util.UUID.randomUUID
 
 class Transactions_Page : AppCompatActivity() {
 
