@@ -13,37 +13,19 @@
         android:layout_width="284dp"
         android:layout_height="53dp"
         android:backgroundTint="#E0FDFBFB"
-        android:textColorHint="@color/white"
         android:ems="10"
-        android:inputType="text"
         android:hint="Old Password"
+        android:inputType="text"
         android:textColor="#D7CECE"
+        android:textColorHint="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.32" />
-
-    <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="284dp"
-        android:layout_height="53dp"
-        android:backgroundTint="#E0FDFBFB"
-        android:textColorHint="@color/white"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="New Password"
-        android:textColor="#D7CECE"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.275"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
     <EditText
         android:id="@+id/editTextText3"
@@ -52,16 +34,35 @@
         android:layout_marginBottom="252dp"
         android:backgroundTint="#E0FDFBFB"
         android:ems="10"
-        android:textColorHint="@color/white"
-        android:inputType="text"
         android:hint="Confirm Password"
+        android:inputType="text"
         android:textColor="#D7CECE"
+        android:textColorHint="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="284dp"
+        android:layout_height="53dp"
+        android:backgroundTint="#E0FDFBFB"
+        android:ems="10"
+        android:hint="New Password"
+        android:inputType="text"
+        android:textColor="#D7CECE"
+        android:textColorHint="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextText3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText"
+        app:layout_constraintVertical_bias="0.504" />
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
@@ -116,30 +117,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- <Button
-        android:id="@+id/button4"
-        android:layout_width="152dp"
-        android:layout_height="52dp"
-        android:backgroundTint="#F7F80505"
-        android:backgroundTintMode="add"
-        android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/materialToolbar"
-        app:layout_constraintVertical_bias="0.901" /> -->
-
-    <!-- Bottom Navigation fixed at bottom -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:background="#5D1E1E"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
-        app:menu="@menu/bottom_nav_menu"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="651dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/materialToolbar"
+        app:layout_constraintVertical_bias="0.975"
+        app:menu="@menu/bottom_nav_menu" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

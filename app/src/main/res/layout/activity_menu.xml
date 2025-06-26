@@ -74,7 +74,7 @@
 
             <Button
                 android:id="@+id/transactionBtn"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="87dp"
                 android:layout_weight="1"
                 android:backgroundTint="#E72626"
@@ -135,17 +135,6 @@
                 android:text="Report"
                 android:textSize="22sp" />
         </LinearLayout>
-        <!-- <Button
-        android:id="@+id/settingsBtn"
-        android:layout_width="175dp"
-        android:layout_height="87dp"
-        android:text="Settings"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/topAppBar"
-        app:layout_constraintHorizontal_bias="0.125"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/topAppBar"
-        app:layout_constraintVertical_bias="0.902" />-->
     </LinearLayout>
 
     <!-- Bottom Navigation fixed at bottom -->

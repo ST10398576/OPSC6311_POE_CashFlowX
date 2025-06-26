@@ -21,7 +21,6 @@ class Register : AppCompatActivity() {
     private lateinit var registerButton : Button
     private lateinit var tvLoginRedirect: TextView
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
