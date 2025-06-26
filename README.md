@@ -1,4 +1,4 @@
-# CashFlow 
+CashFlowX – Kotlin Budget Tracker App
 
 CashFlowX is a mobile budgeting app developed in Kotlin using Android Studio. It helps users track expenses, earnings, and financial goals with visual insights, reminders, and gamification to encourage consistent logging and budget discipline.
 
