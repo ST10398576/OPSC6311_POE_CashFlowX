@@ -5,7 +5,11 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.auth.ktx.auth
 
+// Example:
+val auth = Firebase.auth
 
 class Onboarding : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

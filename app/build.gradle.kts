@@ -2,7 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-parcelize")
-    id("kotlin-kapt") // required for Glide annotations
+    id("kotlin-kapt")
+    alias(libs.plugins.google.gms.google.services) // required for Glide annotations
 }
 
 android {
@@ -54,6 +55,10 @@ dependencies {
     implementation(libs.material)
     implementation("androidx.activity:activity-ktx:1.10.1")
     implementation(libs.androidx.constraintlayout)
+
+    implementation(libs.firebase.database)
+    implementation("com.google.firebase:firebase-auth-ktx:22.3.1")
+    implementation("com.google.firebase:firebase-database-ktx:21.0.0")
 
     implementation("androidx.room:room-runtime:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
