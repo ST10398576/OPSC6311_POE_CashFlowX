@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Base Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#666666</color>
+    <color name="light_gray">#CCCCCC</color>
+    <color name="dark_gray">#333333</color>
+
+    <!-- Primary Theme Colors -->
+    <color name="primary">#1976D2</color> <!-- Blue -->
+    <color name="primary_dark">#1565C0</color>
+    <color name="primary_light">#63A4FF</color>
+
+    <!-- Accent / Secondary Colors -->
+    <color name="secondary">#FF4081</color> <!-- Pink -->
+    <color name="secondary_dark">#C2185B</color>
+    <color name="secondary_light">#FF80AB</color>
+
+    <!-- Red Shades -->
+    <color name="red_primary">#D32F2F</color>         <!-- Strong Red -->
+    <color name="red_dark">#B71C1C</color>           <!-- Deep Red -->
+    <color name="red_light">#FFCDD2</color>          <!-- Pale Red -->
+    <color name="red_accent">#F44336</color>         <!-- Alert Red -->
+    <color name="red_soft">#E57373</color>           <!-- Mellow Red -->
+    <color name="red_button">#E53935</color>         <!-- For Red Buttons -->
+
+    <!-- Status Colors -->
+    <color name="success">#4CAF50</color>
+    <color name="warning">#FF9800</color>
+    <color name="error">@color/red_accent</color>    <!-- Reused above -->
+
+    <!-- Backgrounds & Surfaces -->
+    <color name="background">#F5F5F5</color>
+    <color name="surface">#FAFAFA</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    <color name="text_on_secondary">#FFFFFF</color>
+
+    <!-- Custom Blue -->
+    <color name="blue">#1E88E5</color>
 </resources>
