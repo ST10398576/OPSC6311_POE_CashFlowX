@@ -44,11 +44,7 @@ class GraphActivity : AppCompatActivity() {
         val periods = arrayOf("This Week", "This Month", "This Year")
         periodSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, periods)
 
-        val expensesList = listOf(
-            ExpensesItem("Food", "2024-06-01", 200.0, "Food", "Lunch at KFC", ""),
-            ExpensesItem("Transport", "2024-06-02", 150.0, "Transport", "Uber trip", ""),
-            ExpensesItem("Entertainment", "2024-06-03", 300.0, "Entertainment", "Movie ticket", "")
-        )
+        val expensesList = TransactionManager.getExpenses()
 
         recyclerView = findViewById(R.id.recyclerViewExpenses)
         recyclerView.layoutManager = LinearLayoutManager(this)
