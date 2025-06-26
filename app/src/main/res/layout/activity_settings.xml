@@ -105,7 +105,7 @@
         app:layout_constraintVertical_bias="0.188" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/ConfirmNewPassword"
         android:layout_width="339dp"
         android:layout_height="44dp"
         android:layout_marginBottom="152dp"
@@ -117,12 +117,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/LogOutBtn"
         android:layout_width="152dp"
         android:layout_height="52dp"
         android:backgroundTint="#F7F80505"
         android:backgroundTintMode="add"
-        android:text="Back"
+        android:text="LogOut"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
