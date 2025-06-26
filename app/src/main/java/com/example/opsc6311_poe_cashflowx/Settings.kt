@@ -7,49 +7,55 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.EmailAuthProvider
+import com.google.firebase.auth.FirebaseAuth
 
 class Settings : AppCompatActivity() {
-
-    private lateinit var dbHelper: DBHelper
-    private lateinit var currentUsername: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_settings)
 
-        // Get the username from intent
-        currentUsername = intent.getStringExtra("username") ?: ""
-
-        dbHelper = DBHelper(this)
-
-        val oldPasswordEditText = findViewById<EditText>(R.id.editTextText)
-        val newPasswordEditText = findViewById<EditText>(R.id.editTextText2)
-        val confirmPasswordEditText = findViewById<EditText>(R.id.editTextText3)
+        val oldPasswordField = findViewById<EditText>(R.id.txOldPassword)
+        val newPasswordField = findViewById<EditText>(R.id.txNewPassword)
+        val confirmPasswordField = findViewById<EditText>(R.id.txConfirmNewPassword)
         val confirmButton = findViewById<Button>(R.id.ConfirmNewPassword)
-        val logOutBtn = findViewById<Button>(R.id.LogOutBtn)
+
+        val auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
 
         confirmButton.setOnClickListener {
-            val oldPassword = oldPasswordEditText.text.toString().trim()
-            val newPassword = newPasswordEditText.text.toString().trim()
-            val confirmPassword = confirmPasswordEditText.text.toString().trim()
-
-            if (oldPassword.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
-                Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+            val oldPassword = oldPasswordField.text.toString().trim()
+            val newPassword = newPasswordField.text.toString().trim()
+            val confirmPassword = confirmPasswordField.text.toString().trim()
 
             if (newPassword != confirmPassword) {
-                Toast.makeText(this, "New passwords do not match", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val success = dbHelper.updatePassword(currentUsername, oldPassword, newPassword)
-            if (success) {
-                Toast.makeText(this, "Password updated successfully", Toast.LENGTH_SHORT).show()
-                finish()
-            } else {
-                Toast.makeText(this, "Old password is incorrect", Toast.LENGTH_SHORT).show()
+            if (user != null && user.email != null) {
+                val credential = EmailAuthProvider.getCredential(user.email!!, oldPassword)
+
+                // Reauthenticate
+                user.reauthenticate(credential).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        // Now change password
+                        user.updatePassword(newPassword).addOnCompleteListener { updateTask ->
+                            if (updateTask.isSuccessful) {
+                                Toast.makeText(this, "Password updated successfully", Toast.LENGTH_SHORT).show()
+                                oldPasswordField.text.clear()
+                                newPasswordField.text.clear()
+                                confirmPasswordField.text.clear()
+                            } else {
+                                Toast.makeText(this, "Failed to update password", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    } else {
+                        Toast.makeText(this, "Re-authentication failed. Wrong old password?", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
 
@@ -59,10 +65,8 @@ class Settings : AppCompatActivity() {
                 .setTitle("Log Out")
                 .setMessage("Are you sure you want to log out?")
                 .setPositiveButton("Yes") { _, _ ->
-                    // No shared preference clearing needed if you're not storing sessions
-                    val intent = Intent(this, Onboarding::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
+                    FirebaseAuth.getInstance().signOut()
+                    startActivity(Intent(this, Onboarding::class.java))
                     finish()
                 }
                 .setNegativeButton("Cancel", null)
