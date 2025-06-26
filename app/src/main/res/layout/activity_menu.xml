@@ -135,9 +135,20 @@
                 android:text="Report"
                 android:textSize="22sp" />
         </LinearLayout>
+            <Button
+            android:id="@+id/settingsBtn"
+            android:layout_width="175dp"
+            android:layout_height="87dp"
+            android:text="Settings"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/topAppBar"
+            app:layout_constraintHorizontal_bias="0.125"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/topAppBar"
+            app:layout_constraintVertical_bias="0.902" />
     </LinearLayout>
 
-    <!-- Bottom Navigation fixed at bottom -->
+    <!-- Bottom Navigation fixed at bottom
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
@@ -145,5 +156,5 @@
         android:background="#5D1E1E"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu" /> -->
 </LinearLayout>

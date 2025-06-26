@@ -1,4 +1,4 @@
-package com.example.opsc6311_poe_cashflowx
+package com.example.cashflowx
 
 import android.os.Bundle
 import android.widget.EditText
@@ -7,6 +7,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.opsc6311_poe_cashflowx.BudgetCategoryAdapter
+import com.example.opsc6311_poe_cashflowx.BudgetCategoryDisplay
+import com.example.opsc6311_poe_cashflowx.DBHelper
+import com.example.opsc6311_poe_cashflowx.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter

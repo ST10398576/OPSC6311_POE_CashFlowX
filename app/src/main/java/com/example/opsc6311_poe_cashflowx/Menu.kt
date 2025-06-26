@@ -8,7 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-
+import com.example.cashflowx.Budget_Page
 
 class Menu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +42,6 @@ class Menu : AppCompatActivity() {
         }
 
         transactionBtn.setOnClickListener {
-            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, Transactions_Page::class.java)
             startActivity(intent)
         }
