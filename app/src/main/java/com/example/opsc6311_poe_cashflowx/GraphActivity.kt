@@ -43,7 +43,7 @@ class GraphActivity : AppCompatActivity() {
         periodSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, periods)
 
         val items = listOf("Food: R200", "Transport: R150", "Entertainment: R300")
-        listView.adapter = ExpenseAdapter(this, items)
+        listView.adapter = ExpensesAdapter(this, items)
 
         setupBarChart()
     }
