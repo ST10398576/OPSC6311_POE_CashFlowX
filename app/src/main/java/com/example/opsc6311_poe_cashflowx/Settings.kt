@@ -1,5 +1,6 @@
 package com.example.opsc6311_poe_cashflowx
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -25,8 +26,8 @@ class Settings : AppCompatActivity() {
         val oldPasswordEditText = findViewById<EditText>(R.id.editTextText)
         val newPasswordEditText = findViewById<EditText>(R.id.editTextText2)
         val confirmPasswordEditText = findViewById<EditText>(R.id.editTextText3)
-        val confirmButton = findViewById<Button>(R.id.button2)
-        val backButton = findViewById<Button>(R.id.button4)
+        val confirmButton = findViewById<Button>(R.id.ConfirmNewPassword)
+        val logOutBtn = findViewById<Button>(R.id.LogOutBtn)
 
         confirmButton.setOnClickListener {
             val oldPassword = oldPasswordEditText.text.toString().trim()
@@ -52,8 +53,20 @@ class Settings : AppCompatActivity() {
             }
         }
 
-        backButton.setOnClickListener {
-            finish()
+        val logoutBtn = findViewById<Button>(R.id.LogOutBtn)
+        logoutBtn.setOnClickListener {
+            androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Log Out")
+                .setMessage("Are you sure you want to log out?")
+                .setPositiveButton("Yes") { _, _ ->
+                    // No shared preference clearing needed if you're not storing sessions
+                    val intent = Intent(this, Onboarding::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
         }
     }
 }
