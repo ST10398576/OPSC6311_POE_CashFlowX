@@ -59,8 +59,8 @@ dependencies {
     kapt("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
-    implementation("com.github.bumptech.glide:glide:4.13.0") // Latest version at the time
-    kapt("com.github.bumptech.glide:compiler:4.13.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    kapt("com.github.bumptech.glide:compiler:4.16.0")
     implementation("androidx.room:room-runtime:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
@@ -70,11 +70,11 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
     // Calendar & Chart Libraries
-    implementation("com.prolificinteractive:material-calendarview:1.4.3")
+    implementation("com.prolificinteractive:material-calendarview:1.4.3") {
+        exclude(group = "com.android.support", module = "support-compat")
+    }
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
-    // Glide (image loading)
-    implementation("com.github.bumptech.glide:glide:4.16.0")
 
     // Testing
     testImplementation("junit:junit:4.13.2")
