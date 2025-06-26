@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.*
@@ -17,7 +19,7 @@ class GraphActivity : AppCompatActivity() {
     private lateinit var btnAddExpense: Button
     private lateinit var btnAchievements: Button
     private lateinit var periodSpinner: Spinner
-    private lateinit var listView: ListView
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,8 +44,15 @@ class GraphActivity : AppCompatActivity() {
         val periods = arrayOf("This Week", "This Month", "This Year")
         periodSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, periods)
 
-        val items = listOf("Food: R200", "Transport: R150", "Entertainment: R300")
-        listView.adapter = ExpensesAdapter(this, items)
+        val expensesList = listOf(
+            ExpensesItem("Food", "2024-06-01", 200.0, "Food", "Lunch at KFC", ""),
+            ExpensesItem("Transport", "2024-06-02", 150.0, "Transport", "Uber trip", ""),
+            ExpensesItem("Entertainment", "2024-06-03", 300.0, "Entertainment", "Movie ticket", "")
+        )
+
+        recyclerView = findViewById(R.id.recyclerViewExpenses)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = ExpensesAdapter(expensesList)
 
         setupBarChart()
     }
