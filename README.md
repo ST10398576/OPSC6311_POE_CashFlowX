@@ -39,7 +39,7 @@ No zipped source – entire project structured and accessible
 Streak Tracker – Tracks how many consecutive days a user logs expenses.
 Progress Feedback Bar – Displays how well the user is staying within their monthly budget goals.
 
-[06/26, 11:40] Syntyche: 🧪 GitHub Actions & Version Control
+🧪 GitHub Actions & Version Control
 CI/CD setup via GitHub Actions (build and test)
 
 Frequent commits with descriptive messages
