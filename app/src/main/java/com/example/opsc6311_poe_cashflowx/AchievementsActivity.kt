@@ -19,7 +19,7 @@ class AchievementsActivity : AppCompatActivity() {
 
     private fun loadBadges() {
         val prefs = getSharedPreferences("badges", Context.MODE_PRIVATE)
-        S
+
         val logged7Days = prefs.getBoolean("logged7Days", false)
         val metMonthlyGoal = prefs.getBoolean("metMonthlyGoal", false)
 
