@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.opsc6311_poe_cashflowx" />
+                  <option name="mobileSdkAppId" value="1:733749554107:android:bd3e07cd0e5311912b729e" />
+                  <option name="projectId" value="cashflowx-1b161" />
+                  <option name="projectNumber" value="733749554107" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
