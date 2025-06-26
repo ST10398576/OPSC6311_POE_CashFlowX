@@ -1,10 +1,25 @@
 <resources>
-    <string name="app_name">OPSC6311_POE_CashFlowX</string>
+    <string name="app_name">CashFlowX</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="your_achievements">Your Achievements</string>
+    <string name="monthly_goal_reached">Monthly Goal Reached</string>
+    <string name="logged_7_days_badge">translatable="false">"Logged 7 Days Badge"</string>
+    <string name="consistent_logger_7_days">translatable="false">"Consistent Logger (7 Days)"</string>
+    <string name="budget_goal_met_badge">translatable="false">"Budget Goal Met Badge"</string>
+    <string name="feb_2021">Feb 2021</string>
+    <string name="wed">WED</string>
+    <string name="sat">SAT</string>
+    <string name="fri">FRI</string>
+    <string name="thur">THUR</string>
+    <string name="mon">MON</string>
+    <string name="tue">TUE</string>
+    <string name="sun">SUN</string>
+    <string name="back">Back</string>
+    <string name="forward">forward</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

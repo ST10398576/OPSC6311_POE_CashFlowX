@@ -13,41 +13,44 @@
         android:theme="@style/Theme.OPSC6311_POE_CashFlowX"
         tools:targetApi="31">
         <activity
+            android:name=".AchievementsActivity"
+            android:exported="false" />
+        <activity
             android:name=".Onboarding"
             android:exported="true">
-        <activity
-            android:name=".Transactions_Page"
-            android:exported="true" />
-        <activity
-            android:name=".Earnings"
-            android:exported="true" />
-        <activity
-            android:name=".Expenses"
-            android:exported="true" />
-        <activity
-            android:name=".Budget_Page"
-            android:exported="true" />
-        <activity
-            android:name=".Register"
-            android:exported="true" />
-        <activity
-            android:name=".Registration_Fail"
-            android:exported="true" />
-        <activity
-            android:name=".Registration_Success"
-            android:exported="true" />
-        <activity
-            android:name=".Settings"
-            android:exported="true" />
-        <activity
-            android:name=".Calander"
-            android:exported="true" />
-        <activity
-            android:name=".Menu"
-            android:exported="true" />
-        <activity
-            android:name=".Welcome"
-            android:exported="true" />
+            <activity
+                android:name=".Transactions_Page"
+                android:exported="true" />
+            <activity
+                android:name=".Earnings"
+                android:exported="true" />
+            <activity
+                android:name=".Expenses"
+                android:exported="true" />
+            <activity
+                android:name=".Budget_Page"
+                android:exported="true" />
+            <activity
+                android:name=".Register"
+                android:exported="true" />
+            <activity
+                android:name=".Registration_Fail"
+                android:exported="true" />
+            <activity
+                android:name=".Registration_Success"
+                android:exported="true" />
+            <activity
+                android:name=".Settings"
+                android:exported="true" />
+            <activity
+                android:name=".Calander"
+                android:exported="true" />
+            <activity
+                android:name=".Menu"
+                android:exported="true" />
+            <activity
+                android:name=".Welcome"
+                android:exported="true" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
